@@ -1,0 +1,243 @@
+#!name = Application Moderation
+#!desc = Application Moderation
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Flag_icon/120px/CN.png
+
+[Rule]
+DOMAIN, adsmind.gdtimg.com, REJECT
+DOMAIN, ii.gdt.qq.com, REJECT
+DOMAIN, sdk.e.qq.com, REJECT
+DOMAIN, us.l.qq.com, REJECT
+DOMAIN, tmead.y.qq.com, REJECT-NO-DROP
+DOMAIN, tmeadkg.y.qq.com, REJECT-NO-DROP
+URL-REGEX, ^http:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_k_main_page_banner\/, REJECT
+DOMAIN,appcloud.zhihu.com,REJECT
+DOMAIN,appcloud2.in.zhihu.com,REJECT
+DOMAIN,crash2.zhihu.com,REJECT
+DOMAIN,mqtt.zhihu.com,REJECT
+DOMAIN,sugar.zhihu.com,REJECT
+DOMAIN,zxid-m.mobileservice.cn,REJECT
+IP-CIDR,103.41.167.237/32,REJECT
+IP-CIDR,118.89.204.198/32,REJECT
+IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,REJECT
+DOMAIN, adstats.tencentmusic.com, REJECT-DROP
+DOMAIN, ad.tencentmusic.com, REJECT-DROP
+DOMAIN, adcdn.tencentmusic.com, REJECT
+DOMAIN, adcdn6.tencentmusic.com, REJECT
+DOMAIN, adexpo.tencentmusic.com, REJECT
+DOMAIN, adclick.tencentmusic.com, REJECT
+DOMAIN, otheve.beacon.qq.com, REJECT-DROP
+DOMAIN, mazu.m.qq.com, REJECT-DROP
+DOMAIN, monitor.music.qq.com, REJECT-DROP
+DOMAIN, stat.y.qq.com, REJECT
+DOMAIN, tmead.y.qq.com, REJECT-NO-DROP
+DOMAIN, oth.str.mdt.qq.com, REJECT
+DOMAIN, h.trace.qq.com, REJECT
+DOMAIN, sdk.e.qq.com, REJECT
+DOMAIN, p.l.qq.com, REJECT
+DOMAIN, us.l.qq.com, REJECT
+DOMAIN, tangram.e.qq.com, REJECT
+DOMAIN-SUFFIX, imtmp.net, REJECT
+DOMAIN, amap-aos-info-nogw.amap.com, REJECT
+DOMAIN, free-aos-cdn-image.amap.com, REJECT
+IP-CIDR, 180.76.76.112/32, REJECT
+IP-CIDR, 180.76.76.200/32, REJECT
+DOMAIN, adsmind.ugdtimg.com, REJECT
+DOMAIN, amdc.m.youku.com, REJECT
+DOMAIN, apiv4-iyes.youku.com, REJECT
+DOMAIN, httpdns.alicdn.com, REJECT
+DOMAIN, huichuan-mc.sm.cn, REJECT
+DOMAIN, huichuan.sm.cn, REJECT
+DOMAIN, iyes.youku.com, REJECT
+DOMAIN, m-vali.cp31.ott.cibntv.net, REJECT
+DOMAIN, mc.atm.youku.com, REJECT
+DOMAIN, vali-g1.cp31.ott.cibntv.net, REJECT
+DOMAIN, vali-ugc.cp31.ott.cibntv.net, REJECT
+DOMAIN, yk-ssp.ad.youku.com, REJECT
+DOMAIN, ykad-data.youku.com, REJECT
+DOMAIN, app.tubemaxapp.com, PROXY
+DOMAIN-SUFFIX, adjust.com, REJECT
+DOMAIN-SUFFIX, applvn.com, REJECT
+DOMAIN-SUFFIX, app-measurement.com, REJECT
+DOMAIN-SUFFIX, pangle.io, REJECT
+DOMAIN-SUFFIX, applovin.com, REJECT
+DOMAIN-SUFFIX, appier.net, REJECT
+DOMAIN-SUFFIX, adsmoloco.com, REJECT
+DOMAIN-SUFFIX, adcanvas.com, REJECT
+DOMAIN, adashx.m.taobao.com, REJECT
+DOMAIN, ossgw.alicdn.com, REJECT
+DOMAIN, ems.youku.com, REJECT
+DOMAIN, hudong.alicdn.com, REJECT
+DOMAIN, h-adashx.ut.taobao.com, REJECT
+DOMAIN, ut.taobao.com, REJECT
+DOMAIN, dns.jd.com, REJECT
+IP-CIDR, 101.124.19.122/32, REJECT, no-resolve
+IP-CIDR6, 2402:db40:5100:1011::5/128, REJECT, no-resolve
+URL-REGEX, ^http:\/\/\w{32}\.jddebug\.com\/diagnose\?, REJECT
+DOMAIN,d3g.qq.com,REJECT
+DOMAIN,bsrv.qq.com,REJECT
+DOMAIN,sq.bls.mdt.qq.com,REJECT
+#DOMAIN,btrace.qq.com,REJECT
+DOMAIN,adsmind.gdtimg.com,REJECT
+DOMAIN,xj-landing.gdtimg.com,REJECT
+
+[Rewrite]
+^https:\/\/wallpaper-\d+\.file\.myqcloud\.com\/dsl\/ reject-dict
+^https?:\/\/wallpaper-\d+\.file\.myqcloud\.com\/hikari\/ reject-dict
+^https:\/\/amsweb-cdn-\S+-\d+\.file\.myqcloud\.com\/video\/ad_profile\/ reject-dict
+^https:\/\/adsmind\.gdtimg\.com\/ads_svp_video.*(jpeg|jpg|png|webp) reject-img
+^https:\/\/adsmind\.gdtimg\.com\/ads_svp_video.*mp4 reject-video
+^https:\/\/api\.zhihu\.com\/commercial_api\/(answer\/\d+\/bottom-v2|banners_v3\/app_topstory_banner|launch_v2|real_time_launch_v2) - reject-dict
+^https:\/\/api\.zhihu\.com\/content-distribution-core\/bubble\/common\/settings - reject-dict
+^https:\/\/api\.zhihu\.com\/(moments\/lastread|drama\/hot-drama-list) - reject-dict
+^https:\/\/api\.zhihu\.com\/root\/window - reject-dict
+^https:\/\/api\.zhihu\.com\/(bazaar\/float_window|market\/popovers_v2) - reject-dict
+^https:\/\/api\.zhihu\.com\/me\/guides - reject-dict
+^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card - reject
+^https:\/\/api\.zhihu\.com\/search\/preset_words - reject-dict
+^https:\/\/www\.zhihu\.com\/api\/v4\/search\/related_queries\/(article|answer)\/\d+ - reject-dict
+^https:\/\/api\.zhihu\.com\/comment_v5\/(articles|answers)\/\d+\/list-headers - reject-dict
+^https:\/\/api\.zhihu\.com\/prague\/related_suggestion_native\/feed\? - reject-dict
+^https:\/\/api\.zhihu\.com\/v5\.1\/topics\/answer\/\d+\/relation - reject-dict
+^https:\/\/api\.zhihu\.com\/ab\/api\/v1\/products\/zhihu\/platforms\/ios\/config - reject
+^https:\/\/api\.zhihu\.com\/ad-style-service\/request - reject-dict
+^https:\/\/appcloud2\.zhihu\.com\/v3\/resource\?group_name=mp - reject-dict
+^https:\/\/link\.zhihu\.com\/\?target=(https?)?(%3A|:)?(\/\/|%2F%2F)?(.*?)(&source.*)?$ http://$4 302
+^https:\/\/api\.zhihu\.com\/distribute\/rhea\/qa_ad_card\/h5\/recommendation\? - reject-dict
+^https:\/\/www\.zhihu\.com\/api\/v4\/hot_recommendation - reject
+^https:\/\/www\.zhihu\.com\/api\/v4\/mcn\/v2\/linkcards\? - reject
+^https:\/\/www\.zhihu\.com\/api\/v4/(answers|questions)\/\d+/related-readings - reject
+^https:\/\/www\.zhihu\.com\/commercial_api\/banners_v3\/mobile_banner - reject
+^https:\/\/zhuanlan\.zhihu\.com\/api\/articles\/\d+\/recommendation - reject
+^https?:\/\/api\.weibo\.cn\/\d\/(cardlist\?v_f=\d|ad\/weibointl\?) - reject-dict
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=hot_search_users - reject-dict
+^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/surprisebox\/(get_style|open|submit_action) - reject-dict
+^https:\/\/www\.xiaohongshu\.com\/api\/marketing\/box\/trigger\? - reject-dict
+^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v3\/note\/guide\? - reject-dict
+^https:\/\/www\.xiaohongshu\.com\/api\/sns\/(v1\/ads\/resource|v2\/hey\/\w+\/hey_gallery) - reject-dict
+^https:\/\/c\.pc\.qq\.com\/middlem\.html\?pfurl=)(http.*)(&pfuin=.*) 302 $2
+^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/middlem\.html\?pfurl%3d)(http.*)(%26pfuin%3d.*%26pfuin%3d.*) 302 $2
+^https:\/\/cgi\.connect\.qq\.com\/qqconnectopen\/get_urlinfoForQQV2\?url=)(http.*) 302 $2
+^https:\/\/c\.pc\.qq\.com\/index\.html\?pfurl=)(http.*)(&pfuin=.*) 302 $2
+^https:\/\/c\.pc\.qq\.com\/ios\.html\?url=)(http.*)(&level=.*) 302 $2
+^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/ios\.html\?url%3d)(http.*)(%26level.*%26level.*) 302 $2
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad reject-200
+^https:\/\/shc6\.y\.qq\.com\/tips\/fcgi-bin\/fcg_get_advert\.fcg
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(car-end|route-plan)\? reject-dict
+^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\? reject-dict
+^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? reject-dict
+^https:\/\/oss\.amap\.com\/ws\/banner\/lists\/\? reject-dict
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-(assets|location)\? reject-dict
+^https:\/\/m5\.amap\.com\/ws\/(mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword)\? reject-dict
+^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? reject-dict
+^https:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? reject-dict
+^https:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\? reject-dict
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(order\/car\/king_toolbox_car_bubble|tips\/onscene_visual_optimization)\? reject-dict
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(car\/order\/content_info|order\/car\/king_toolbox_car_bubble)\? reject-dict
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(order_web\/friendly_information|tips\/onscene_visual_optimization)\? reject-dict
+^https:\/\/pan\.baidu\.com\/(act\/api\/activityentry|act\/v2\/|rest\/2\.0\/pcs\/ad) reject-dict# 首页 - 好物推荐、商品推广、底部标签页、快递详情页、问卷调查、主页图标
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword\.get\.cn reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.cncommunity\.my\.station\.query\.cn reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(batch\.show\.v2|expose\.mreply|index)\.cn reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbopen\.miniapp\.recommend\.cpc\.cn reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbmensa\.research\.researchservice\.(acquire|event|close)\.cn reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(homepage\.merge|tabbar\.marketing)\.get\.cn reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.cnactivitycenter reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.cncreditmarket\.hit\.getactivityhit\.cn reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.longquan\.place\.getpageresourcecontent\.cn reject-dict
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad reject-dict
+^https:\/\/.*\.i18n-pglstatp\.com\/obj\/ad-pattern-sg reject
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources reject-dict
+^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602|tps-1080-1920)\.(jp|pn)g_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 reject-dict
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) reject-dict
+^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06]) reject-dict
+^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ - reject
+^https?:\/\/api\.vc\.bilibili\.com\/search_svr\/v\d\/Search\/recommend_words - reject-dict
+^https?:\/\/api\.vc\.bilibili\.com\/topic_svr\/v1\/topic_svr - reject-dict
+^https?:\/\/api\.vc\.bilibili\.com\/dynamic_svr\/v1\/dynamic_svr\/mix_uplist - reject-dict
+^https?:\/\/api\.bili(bili\.com|api\.net)\/pgc\/season\/app\/related\/recommend\? - reject-dict
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/Flash - reject-dict
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/ListFlash - reject-dict
+^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? - reject-dict
+^http:\/\/c\.gdt\.qq\.com\/gdt_clickwap\.fcg\?viewid _ reject
+^http:\/\/pgdt\.gtimg\.cn\/gdt\/0\/.+\.jpg _ reject
+^http:\/\/v\.gdt\.qq\.com\/gdt_stats\.fcg\?viewid _ reject
+^http:\/\/rpt\.gdt\.qq\.com\/creative_view\?viewid _ reject
+^http:\/\/pgdt\.gtimg\.cn\/gdt\/.+\.png _ reject
+^http:\/\/pgdt\.gtimg\.cn\/gdt\/.+\.jpg _ reject
+^http:\/\/pgdt\.gtimg\.cn\/.+\/snscosdownload\/SH\/reserved\/.+ _ reject
+
+[Script]
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/(note\/widgets|user\/followings\/followfeed) script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除详情页小部件
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/search\/(banner|hot)_list script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除搜索页广告
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v4\/search\/(hint|trending)\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除搜索页广告
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v10\/search\/notes\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除搜索页广告
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/system_service\/config\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除开屏广告
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/system_service\/splash_config script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除开屏广告
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v4\/followfeed\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除信息流广告
+http-response https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v5\/recommend\/user\/follow_recommend\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除详情页感兴趣的人
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v6\/homefeed\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除信息流广告
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/(v2\/note\/feed|v3\/note\/videofeed)\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除图片和视频水印
+http-response https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/note\/(imagefeed|live_photo\/save) script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body=true, tag=移除图片和实况照片水印
+http-response ^https:\/\/api\.zhihu\.com\/commercial_api\/app_float_layer script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除首页推广
+http-response ^https:\/\/api\.zhihu\.com\/feed\/render\/tab\/config\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除首页推广
+http-response ^https:\/\/api\.zhihu\.com\/(moments_v3|topstory\/hot-lists\/total|topstory\/recommend) script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除首页推广
+http-response ^https:\/\/api\.zhihu\.com\/v2\/topstory\/hot-lists\/everyone-seeing\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除首页推广
+http-response ^https:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/CommonScript/replace-body.js, requires-body=true, tag=移除搜索页关键词, argument=""recommend_queries":\{.+\}->"recommend_queries":{}"
+http-response ^https:\/\/api\.zhihu\.com\/next-(bff|data|render)\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除回答详情页推广
+http-response ^https:\/\/api\.zhihu\.com\/questions\/\d+(\/answers|\/feeds|\?include=) script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除回答详情页推广
+http-response ^https:\/\/www\.zhihu\.com\/api\/v4\/(articles|answers)\/\d+\/recommendations?\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=移除回答详情页推广
+http-response ^https:\/\/appcloud2\.zhihu\.com\/v3\/config script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=拦截服务器推送配置
+http-response ^https:\/\/m-cloud\.zhihu\.com\/api\/cloud\/config\/all\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Zhihu/Zhihu_remove_ads.js, requires-body=true, tag=拦截服务器推送配置
+http-response ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?(ct=(feed&a=trends|user&a=get_searching_info)|a=(get_coopen_ads|user_center|search_topic|open_app&auth|icon_center)) script-path=https://gitlab.com/lodepuly/vpn_tool/raw/master/Resource/Script/Weibo_intl/Weibo_intl_remove_ads.js, requires-body=true, tag=微博轻享版去广告
+http-response ^https?:\/\/api\.weibo\.cn\/\d\/statuses\/.*timeline script-path=https://gitlab.com/lodepuly/vpn_tool/raw/master/Resource/Script/Weibo_intl/Weibo_intl_remove_ads.js, requires-body=true, tag=微博轻享版去广告
+http-response ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php script-path=https://gitlab.com/lodepuly/vpn_tool/raw/master/Resource/Script/Weibo_intl/Weibo_intl_remove_ads.js, requires-body=true, tag=微博轻享版去广告
+http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouTube/YouTube_remove_ads_request.js, requires-body = true, binary-body-mode = true, tag = YouTube请求
+http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouTube/YouTube_remove_ads_response.js, requires-body = true, binary-body-mode = true, tag = YouTube响应
+http-response ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Alibaba/Alibaba_amdc_reject.js, tag = 移除阿里巴巴通用广告请求
+http-response ^https:\/\/m5\.amap\.com\/ws\/perception\/drive\/(routeInfo|routePlan)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除导航详情页扰人组件
+http-response ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/(common\/coupon\/info|poi\/detail)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除导航详情页扰人组件
+http-response ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除导航详情页扰人组件
+http-response ^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/(homepage|mps|search\/sp|sug|tips_operation_location)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除导航详情页扰人组件
+http-response ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除首页扰人组件
+http-response ^https:\/\/m5\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable\/1\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除首页扰人组件
+http-response ^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除我的页面扰人组件
+http-response ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除附近页推广
+http-response ^https:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除开屏广告
+http-response ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除打车页推广
+http-response ^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource(\/home)?\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除打车页推广
+http-response ^https:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除打车页推广
+http-response ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Alibaba/Alibaba_amdc_reject.js, tag = 移除阿里巴巴通用广告请求
+http-response ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除首页推广
+http-response ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get\.cn script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除首页推广
+http-response ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.nbfriend\.message\.conversation\.list\.cn script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除消息中心推广
+http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Cainiao/Cainiao_remove_ads.js, requires-body = true, tag = 移除菜鸟小程序推广
+http-response ^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Weixin/Weixin_external_links_unlock.js, requires-body = true, tag = 微信外部链接解锁
+http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body = true, tag = 移除淘宝开屏广告
+http-response ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body = true, tag = 移除淘宝开屏广告
+http-response ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/JD/JD_remove_ads.js, requires-body = true, tag = 移除京东广告
+http-request ^https?:\/\/app\.bili(bili\.com|api\.net)\/x\/v2\/feed\/index\? requires-body=0, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.request.js, tag=BiliBili.ADBlock.request.json, argument=
+http-response ^https?:\/\/app\.bili(bili\.com|api\.net)\/x\/v2\/(splash\/(brand\/list|event\/list2|list|show)|feed\/index(\/story)?|search\/square) requires-body=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.json, argument=
+http-response ^https?:\/\/api\.bilibili\.com\/x\/web-interface\/wbi\/index\/top\/feed\/rcmd\? requires-body=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.json, argument=
+http-response ^https?:\/\/api\.bili(bili\.com|api\.net)\/pgc\/page\/(bangumi|cinema\/tab\?) requires-body=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.json, argument=
+http-response ^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom requires-body=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.json, argument=
+http-response ^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(view|viewunite)\.v1\.View\/(View|TFInfo)$ requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.grpc, argument=
+http-response ^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.dynamic\.v2\.Dynamic\/Dyn(All|Video)$ requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.grpc, argument=
+http-response ^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.playurl\.v1\.PlayURL\/PlayView$ requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.grpc, argument=
+http-response ^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$ requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.grpc, argument=
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/(DmView|DmSegMobile) requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.grpc, argument=
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.grpc, argument=
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.main\.community\.reply\.v1\.Reply\/MainList requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js, tag=BiliBili.ADBlock.response.grpc, argument=
+http-request ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh requires-body=1,script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/documents.js
+http-response https://api.revenuecat.com/v1/(receipts|subscribers)/* script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/main/pixelcut.js,requires-body=1,max-size=0
+http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body=true, binary-body-mode=true, timeout=10, tag=SpotifyPremium
+
+[Mitm]
+hostname = wallpaper-1258344696.file.myqcloud.com, amsweb-cdn-gz-1258344696.file.myqcloud.com, api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com, link.zhihu.com, zhuanlan.zhihu.com, m-cloud.zhihu.com, *api.weibo.cn, sdkapp.uve.weibo.com, edith.xiaohongshu.com, www.xiaohongshu.com, pingtas.qq.com, c.pc.qq.com, cgi.connect.qq.com, *.googlevideo.com, youtubei.googleapis.com, shc6.y.qq.com, m5.amap.com, m5-zb.amap.com, oss.amap.com, sns.amap.com, pan.baidu.com, cn-acs.m.cainiao.com, guide-acs.m.taobao.com, weixin110.qq.com, security.wechat.com, *.i18n-pglstatp.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, api.m.jd.com, manga.bilibili.com, api.live.bilibili.com, api.vc.bilibili.com, app.bilibili.com, app.biliapi.net, api.bilibili.com, api.biliapi.net, grpc.biliapi.net, license.pdfexpert.com, api.revenuecat.com, spclient.wg.spotify.com
