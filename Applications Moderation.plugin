@@ -1,6 +1,10 @@
 #!name = Application Moderation
 #!desc = Application Moderation
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Flag_icon/120px/CN.png
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/Flag_icon/120px/EU.png
+#!select = 隐藏上传按钮, true, false
+#!select = 隐藏选段按钮, true, false
+#!select = 字幕翻译语言, zh-Hans, zh-Hant, ja, ko, en, off
+#!select = 歌词翻译语言, zh-Hans, zh-Hant, ja, ko, en, off
 
 [Rule]
 DOMAIN, adsmind.gdtimg.com, REJECT
@@ -403,6 +407,7 @@ http-response ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?(ct=(feed&a=tr
 http-response ^https?:\/\/api\.weibo\.cn\/\d\/statuses\/.*timeline script-path=https://gitlab.com/lodepuly/vpn_tool/raw/master/Resource/Script/Weibo_intl/Weibo_intl_remove_ads.js, requires-body=true, tag=微博轻享版去广告
 http-response ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php script-path=https://gitlab.com/lodepuly/vpn_tool/raw/master/Resource/Script/Weibo_intl/Weibo_intl_remove_ads.js, requires-body=true, tag=微博轻享版去广告
 http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouTube/YouTube_remove_ads_request.js, requires-body = true, binary-body-mode = true, tag = YouTube请求
+http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/YouTube/YouTube_remove_ads_response.js, requires-body = true, binary-body-mode = true, tag = YouTube响应
 http-response ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Alibaba/Alibaba_amdc_reject.js, tag = 移除阿里巴巴通用广告请求
 http-response ^https:\/\/m5\.amap\.com\/ws\/perception\/drive\/(routeInfo|routePlan)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除导航详情页扰人组件
 http-response ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/(common\/coupon\/info|poi\/detail)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Amap/Amap_remove_ads.js, requires-body = true, tag = 移除导航详情页扰人组件
