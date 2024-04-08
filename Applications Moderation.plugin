@@ -336,7 +336,6 @@ IP-CIDR6,240e:928:1400:10::25/128,REJECT,no-resolve
 ^http:\/\/101\.91\.140\.124\/resolve - reject
 ^http:\/\/101\.91\.140\.224\/resolve - reject
 ^http:\/\/103\.37\.155\.60\/fetch - reject
-^http:\/\/103\.41\.167\.237\/v2\/resolv - reject
 ^http:\/\/112\.64\.218\.119\/resolve - reject
 ^http:\/\/112\.65\.200\.117\/resolve - reject
 ^http:\/\/114\.110\.96\.26\/d - reject
